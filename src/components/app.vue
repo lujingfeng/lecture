@@ -14,7 +14,7 @@ export default {
   },
 
   created: function(){
-
+    console.log(this.$store.abc);
   },
 
   methods: {
