@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", { "modules": false }],
+    "stage-1"
+  ],
+  "comments": false,
+  "env": {
+    "test": {
+      "presets": ["env", "stage-1"],
+      "plugins": [ "istanbul" ]
+    }
+  }
+}
