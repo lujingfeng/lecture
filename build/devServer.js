@@ -11,4 +11,4 @@ var server = new webpackDevServer(compiler, {
   stats: true
 });
 
-server.listen(9003);
+server.listen(9000);

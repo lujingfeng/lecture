@@ -9,8 +9,9 @@ function resolve (dir) {
 
 module.exports = function(env){
   var plugins = [];
+  var isDevelopment = (env == 'dev');
 
-  if(env != 'dev'){
+  if(!isDevelopment){
     plugins.push(new Uglify());
     plugins.push(
       new HtmlWebpackPlugin({
@@ -18,7 +19,7 @@ module.exports = function(env){
           js: 'main.[chunkhash:8].js'
         },
         filename: './index.html',
-        template: './dev/tpl.html',
+        template: './dev/template.html',
         inject: false
       })
     );
@@ -30,8 +31,8 @@ module.exports = function(env){
     },
 
     output: {
-      path: resolve(env == 'dev' ? 'dev' : 'dist'),
-      filename: env == 'dev' ? '[name].js' : '[name].[chunkhash:8].js', 
+      path: resolve(isDevelopment ? 'dev' : 'dist'),
+      filename: isDevelopment ? '[name].js' : '[name].[chunkhash:8].js', 
       publicPath: '/'
     },
 
